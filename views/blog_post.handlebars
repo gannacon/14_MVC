@@ -3,7 +3,7 @@
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 
-  <form class='form new-comment-form' data-blog_post-id={{id}}>
+  <form class='form new-comment-form' data-blog-id={{id}}>
     <div class='form-group'>
       <label for='comment-content'>description:</label>
       <textarea
@@ -16,7 +16,5 @@
       <button type='submit' class='btn btn-primary'>Comment</button>
     </div>
   </form>
-
+  <script src='./js/post.js'></script>
 </div>
-
-<script src='./js/addComment.js'></script>
