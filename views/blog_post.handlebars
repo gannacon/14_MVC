@@ -1,9 +1,9 @@
 <div class='text-center'>
   <h2>{{name}}</h2>
   <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}} {{id}}</p>
 
-  <form class='form new-comment-form' data-blog-id={{id}}>
+  <form class='form new-comment-form' data-id={{id}}>
     <div class='form-group'>
       <label for='comment-content'>description:</label>
       <textarea
@@ -16,5 +16,5 @@
       <button type='submit' class='btn btn-primary'>Comment</button>
     </div>
   </form>
-  <script src='./js/post.js'></script>
+  <script src='/js/comment.js'></script>
 </div>
