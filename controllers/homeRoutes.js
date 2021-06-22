@@ -39,7 +39,8 @@ router.get('/blog_post/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['content', 'post_id'],
+          include: [{ model: User, attributes: ['name'] }],
+          attributes: ['content', 'post_id', 'date_created'],
         },
       ],
     });
@@ -54,6 +55,28 @@ router.get('/blog_post/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/comment/:id', async (req, res) => {
+//   try {
+//     const commentData = await Comment.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     const comments = commentData.get({ plain: true });
+
+//     res.render('comment', {
+//       ...comments,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
