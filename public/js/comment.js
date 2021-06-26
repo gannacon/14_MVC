@@ -12,7 +12,9 @@ const newCommentHandler = async (event) => {
       'Content-Type': 'application/json',
     },
   });
-
+  // if (!res.session.logged_in) {
+  //   alert('You must be logged in to comment');
+  // }
   if (response.ok) {
     document.location.reload();
   } else {
